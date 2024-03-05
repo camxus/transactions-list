@@ -11,8 +11,16 @@ import {
 import apolloClient from "../apollo/client";
 import { Actions } from "../types";
 import { SaveTransaction } from "../queries";
+import { navigate } from "../components/NaiveRouter";
+import { Action } from "redux-saga";
 
-function* sendTransaction() {
+export interface ISendTransaction {
+  to: string;
+  value: number;
+  type?: Action;
+}
+
+export function* sendTransaction(props?: ISendTransaction) {
   const provider = new JsonRpcProvider("http://localhost:8545");
 
   const walletProvider = new BrowserProvider(window.web3.currentProvider);
@@ -29,13 +37,14 @@ function* sendTransaction() {
   };
 
   const transaction = {
-    to: randomAddress(),
-    value: 1000000000000000000,
+    to: (props && props.to) ?? randomAddress(),
+    value: (props && props.value) ?? 1.0,
   };
 
   try {
-    const txResponse: TransactionResponse =
-      yield signer.sendTransaction(transaction);
+    const txResponse: TransactionResponse = yield signer.sendTransaction(
+      transaction
+    );
     const response: TransactionReceipt = yield txResponse.wait();
 
     const receipt: Transaction = yield response.getTransaction();
@@ -57,8 +66,10 @@ function* sendTransaction() {
       mutation: SaveTransaction,
       variables,
     });
+
+    navigate(`/transactions/${receipt.hash}`);
   } catch (error) {
-    //
+    console.log(error);
   }
 }
 
