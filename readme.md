@@ -66,35 +66,35 @@ The tasks for this challenge are listed below, with the exception of one, all be
 
 ### 1. GraphQL Query
 
-- Fix the query responsible for fetching the transactions list on the main page
+- Fix the query responsible for fetching the transactions list on the main page ✅
 
 ### 2. Wallet Connection
 
-- Debug and fix the wallet library *(`web3-onboard`)* issue preventing proper Metamask connection.
+- Debug and fix the wallet library *(`web3-onboard`)* issue preventing proper Metamask connection. ✅
 
 ### 3. Redux Saga
 
-- Investigate and fix the **`SEND_TRANSACTION`** saga, so that transactions reach the chain and receipts are saved in the database.
+- Investigate and fix the **`SEND_TRANSACTION`** saga, so that transactions reach the chain and receipts are saved in the database. ✅
 
 ### 4. Navigation & Redirection
 
-- Redirect to the new transaction's location after a successful send
+- Redirect to the new transaction's location after a successful send ✅
 
 ### 5. Wire in the Form
 
-- Connect the *Send* transaction form inputs with the form and pass along the required values to the saga.
-- Bonus points for introducing basic form validation and closing the modal after a successful send.
+- Connect the *Send* transaction form inputs with the form and pass along the required values to the saga. ✅
+- Bonus points for introducing basic form validation and closing the modal after a successful send. ✅
 
 ### 6. UI
 
-- Fix the styling issue causing the "Connect Wallet" button to disappear under certain screen widths.
+- Fix the styling issue causing the "Connect Wallet" button to disappear under certain screen widths. ✅
 
 ![transactions-list-mobile.png](/assets/transactions-list-mobile.png)
 
 
 ### 7. Human Readable Values
 
-- Convert the transaction values to a human-readable format *(from WEI to ETH)*, dealing with the respective decimals, and applying the conversion to both the list, the single page transaction views and accounting for this when submitting the form.
+- Convert the transaction values to a human-readable format *(from WEI to ETH)*, dealing with the respective decimals, and applying the conversion to both the list, the single page transaction views and accounting for this when submitting the form. ✅
 
 ## Expected Completion Time
 
