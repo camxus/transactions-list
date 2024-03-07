@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 
 import { Actions } from "../types";
 import { ISendTransaction } from "../store/sagas";
+import { ethToWei } from "../utils";
 
 const SendTransaction: React.FC = () => {
   const dispatch = useDispatch();
@@ -12,11 +13,11 @@ const SendTransaction: React.FC = () => {
     setValue,
     register,
     formState: { errors },
-    reset
+    reset,
   } = useForm();
 
   const onSubmit = async ({ recipient, amount }: any) => {
-    await handleDispatch({ to: recipient, value: amount });
+    await handleDispatch({ to: recipient, value: ethToWei(amount) });
     reset(); // Reset form fields
   };
   const handleDispatch = useCallback(

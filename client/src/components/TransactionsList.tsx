@@ -12,7 +12,7 @@ const TransactionList: React.FC = () => {
   const handleNavigate = (hash: string) => navigate(`/transaction/${hash}`);
 
   function renderTransaction({ hash, to, from, value }: Transaction) {
-    const weiToEthValue = value ? weiToEth(+value) : undefined;
+    const weiToEthValue = value ? weiToEth(+value) : 0;
 
     return (
       <div
@@ -20,8 +20,8 @@ const TransactionList: React.FC = () => {
         className="bg-white shadow-sm p-4 md:p-5 border rounded border-gray-300 mt-3 hover:border-blue-500 cursor-pointer"
         onClick={() => handleNavigate(hash)}
       >
-        <span className="font-bold">{weiToEthValue || value} ETH</span> sent from{" "}
-        <span className="font-bold">{from}</span> to{" "}
+        <span className="font-bold">{weiToEthValue || value} ETH</span> sent
+        from <span className="font-bold">{from}</span> to{" "}
         <span className="font-bold">{to}</span>
       </div>
     );

@@ -67,9 +67,10 @@ export function* sendTransaction(props?: ISendTransaction) {
       variables,
     });
 
-    navigate(`/transactions/${receipt.hash}`);
-  } catch (error) {
-    console.log(error);
+    navigate(`/transaction/${receipt.hash}`);
+  } catch (error: any) {
+    //avoid any
+    alert(error.message);
   }
 }
 

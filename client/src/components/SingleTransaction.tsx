@@ -38,7 +38,7 @@ const SingleTransaction: React.FC<SingleTransactionProps> = ({ id }) => {
   }
 
   const { hash, to, from, value } = data?.getTransaction || {};
-  const weiToEthValue = value ? weiToEth(+value) : undefined;
+  const weiToEthValue = value ? weiToEth(+value) : 0;
 
   return (
     <div>
@@ -68,7 +68,7 @@ const SingleTransaction: React.FC<SingleTransactionProps> = ({ id }) => {
             <span className="font-bold">Recipient Address:</span> {to}
           </p>
           <p>
-            <span className="font-bold">Amount:</span> {weiToEthValue || value}
+            <span className="font-bold">Amount:</span> {weiToEthValue || value}{" "}
             ETH
           </p>
         </div>
